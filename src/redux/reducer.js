@@ -19,9 +19,9 @@ const contactsReducer = (state = contactsInitialState, action) => {
   }
 };
 
-const initialFilter = "";
+const filterInitialStore = "";
 
-const filterReducer = (state = initialFilter, action) => {
+const filterReducer = (state = filterInitialStore, action) => {
   switch (action.type) {
     case "filter/filteredContacts":
       return action.payload.query;
