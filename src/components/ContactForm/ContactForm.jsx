@@ -4,7 +4,6 @@ import { addContact } from "../../redux/actions";
 export const ContactForm = () => {
   const contacts = useSelector((state) => state.contacts);
   const dispatch = useDispatch();
-  console.log(contacts);
 
   const handleAddContact = (event) => {
     event.preventDefault();
@@ -14,7 +13,6 @@ export const ContactForm = () => {
     const alreadyExistingContact = contacts.find(
       (contact) => contact.name === name
     );
-    console.log(alreadyExistingContact);
 
     if (!alreadyExistingContact) {
       dispatch(addContact(name, phone));
