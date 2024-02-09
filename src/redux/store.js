@@ -8,8 +8,11 @@
 // NOTE: Redux Toolkit
 
 import { configureStore } from "@reduxjs/toolkit";
-import { rootReducer } from "../redux/reducer";
+import { contactsReducer, filterReducer } from "../redux/reducer";
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    contacts: contactsReducer,
+    filter: filterReducer,
+  },
 });
