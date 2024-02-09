@@ -39,7 +39,7 @@ const contactsInitialState = [
   { id: 5, name: "Ilona Cynk Kastelik", phone: "200126845" },
 ];
 
-const contactsReducer = (state = contactsInitialState, action) => {
+export const contactsReducer = (state = contactsInitialState, action) => {
   switch (action.type) {
     case "contacts/addContact":
       return [...state, action.payload];
@@ -52,7 +52,7 @@ const contactsReducer = (state = contactsInitialState, action) => {
 
 const filterInitialStore = "";
 
-const filterReducer = (state = filterInitialStore, action) => {
+export const filterReducer = (state = filterInitialStore, action) => {
   switch (action.type) {
     case "filter/filteredContacts":
       return action.payload.query;
