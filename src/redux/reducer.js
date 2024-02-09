@@ -31,6 +31,8 @@
 
 // NOTE: Redux Toolkit
 
+import { addContact, deleteContact, filteredContacts } from "../redux/actions";
+
 const contactsInitialState = [
   { id: 1, name: "Amelia Sarnowska", phone: "652310257" },
   { id: 2, name: "Katarzyna Atemborska", phone: "632580125" },
@@ -41,9 +43,9 @@ const contactsInitialState = [
 
 export const contactsReducer = (state = contactsInitialState, action) => {
   switch (action.type) {
-    case "contacts/addContact":
+    case addContact.type:
       return [...state, action.payload];
-    case "contacts/deleteContact":
+    case deleteContact.type:
       return state.filter((contact) => contact.id !== action.payload.id);
     default:
       return state;
@@ -54,7 +56,7 @@ const filterInitialStore = "";
 
 export const filterReducer = (state = filterInitialStore, action) => {
   switch (action.type) {
-    case "filter/filteredContacts":
+    case filteredContacts.type:
       return action.payload.query;
     default:
       return state;
