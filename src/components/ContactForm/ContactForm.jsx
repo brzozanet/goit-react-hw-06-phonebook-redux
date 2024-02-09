@@ -1,14 +1,28 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/actions";
 
 export const ContactForm = () => {
+  const contacts = useSelector((state) => state.contacts);
   const dispatch = useDispatch();
+  console.log(contacts);
 
   const handleAddContact = (event) => {
     event.preventDefault();
     const name = event.target[0].value;
     const phone = event.target[1].value;
-    dispatch(addContact(name, phone));
+
+    const alreadyExistingContact = contacts.find(
+      (contact) => contact.name === name
+    );
+    console.log(alreadyExistingContact);
+
+    if (!alreadyExistingContact) {
+      dispatch(addContact(name, phone));
+    } else {
+      alert(`Contact ${name} already existing in Phonebook.`);
+    }
+
+    event.target.reset();
   };
 
   return (
@@ -23,7 +37,6 @@ export const ContactForm = () => {
             placeholder="Contact name"
             pattern="^[a-zA-Z]+(([' \u2013][a-zA-Z])?[a-zA-Z]*)*$"
             title="Name may contain only letters, apostrophe, dash, and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            defaultValue={"Jan Kowalski"}
             required
           />
         </label>
@@ -38,7 +51,6 @@ export const ContactForm = () => {
             placeholder="Contact number"
             pattern="[0-9]*"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            defaultValue={"563214802"}
             required
           />
         </label>
