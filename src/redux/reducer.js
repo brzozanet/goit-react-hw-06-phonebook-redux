@@ -1,4 +1,35 @@
-import { combineReducers } from "redux";
+// import { combineReducers } from "redux";
+
+// const contactsInitialState = [];
+
+// const contactsReducer = (state = contactsInitialState, action) => {
+//   switch (action.type) {
+//     case "contacts/addContact":
+//       return [...state, action.payload];
+//     case "contacts/deleteContact":
+//       return state.filter((contact) => contact.id !== action.payload.id);
+//     default:
+//       return state;
+//   }
+// };
+
+// const filterInitialStore = "";
+
+// const filterReducer = (state = filterInitialStore, action) => {
+//   switch (action.type) {
+//     case "filter/filteredContacts":
+//       return action.payload.query;
+//     default:
+//       return state;
+//   }
+// };
+
+// export const rootReducer = combineReducers({
+//   contacts: contactsReducer,
+//   filter: filterReducer,
+// });
+
+// NOTE: Redux Toolkit
 
 const contactsInitialState = [
   { id: 1, name: "Amelia Sarnowska", phone: "652310257" },
@@ -29,8 +60,3 @@ const filterReducer = (state = filterInitialStore, action) => {
       return state;
   }
 };
-
-export const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
-});
